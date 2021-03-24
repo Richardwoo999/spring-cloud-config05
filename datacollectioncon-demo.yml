@@ -1,4 +1,4 @@
-socketIP: 192.168.0.38
+socketIP: 192.168.19.130
 socketPort: 3722
 #消防主机socket端口
 socketPort1: 3733
@@ -28,25 +28,32 @@ spring:
 #      client:
 #        prefer-ip: true
   redis:
-    host: host
-    password: 123456
+    host: 192.168.19.130
+    password: Itat@pro
     port: 6379
     database: 0
   rabbitmq:
-    host: rabbitmq.tmc-v1
+    host: 192.168.19.130
     port: 5672
-    username: rabbitmq
-    password: rabbitmq123
+    username: root
+    password: Admin001
     virtual-host: /
-  elasticsearch:
-      cluster-name: cluster-name
-      cluster-nodes: host:9300
+  data:
+    elasticsearch: #ES中系统变量 # Elasticsearch 9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
+      cluster-name: cluster01
+      cluster-nodes: 192.168.19.130:9300
+      pool-size: 5   #ES中自定义变量
+      rest:  #ES中系统变量
+        username: esuser
+        password: Itat@pro
+        uris:
+          - http://192.168.19.130:9200
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:host}:${MYSQL_PORT:3306}/turing_device?useUnicode=true&characterEncoding=UTF8&useSSL=true
+    url: jdbc:mysql://192.168.19.130:3306/turing-device?characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
     druid:
       stat-view-servlet:
         loginUsername: root
-        loginPassword: 123456
+        loginPassword: Itat@pro
 
 
 
