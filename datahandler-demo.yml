@@ -1,4 +1,4 @@
-logging:
+﻿logging:
   level:
     cn.turing.firecontrol: DEBUG
 
@@ -7,10 +7,13 @@ server:
 
 spring:
   application:
-    name: turing-datahandler
+    name: turing-datahandler 
   datasource:
-    url: jdbc:mysql://host:3306/turing_datahandler?useUnicode=true&characterEncoding=UTF8
-
+    url: jdbc:mysql://192.168.19.130:3306/turing-datahandler?characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+    druid:
+      stat-view-servlet:
+        loginUsername: root
+        loginPassword: Itat@pro
 # 配置数据库
 mybatis:
   basepackage: cn.turing.firecontrol.datahandler.mapper
