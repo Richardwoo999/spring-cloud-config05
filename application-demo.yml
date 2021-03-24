@@ -1,15 +1,15 @@
-﻿spring:
+spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     default-property-inclusion: always
   datasource:
     name: turing
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: Itat@pro
     # 使用druid数据源
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       filters: stat
       maxActive: 20
@@ -31,7 +31,12 @@
     database: 0
   elasticsearch:
     cluster-name: cluster01
-    cluster-nodes: 192.168.19.130:9300  
+    cluster-nodes: 192.168.19.130:9200
+    rest:
+      username: esuser
+      password: Itat@pros
+      uris:
+        - http://192.168.19.130:9200
 
 
 
